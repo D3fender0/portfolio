@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alex Cipher | Ethical Hacker & Security Researcher</title>
+  <meta name="description" content="Ethical Hacker | Bug Bounty | Penetration Tester | CTF Player">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --text: #c9d1d9;
+      --primary: #58a6ff;
+      --card: #161b22;
+      --border: #30363d;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header & Hero */
+    header {
+      background: linear-gradient(135deg, #1f6feb 0%, #c41fce 100%);
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      opacity: 0.9;
+    }
+    .socials {
+      margin-top: 30px;
+    }
+    .socials a {
+      color: white;
+      font-size: 2rem;
+      margin: 0 15px;
+      transition: 0.3s;
+    }
+    .socials a:hover { transform: translateY(-5px); }
+
+    /* Main Content */
+    main { padding: 80px 0; }
+    section { margin-bottom: 100px; }
+    h2 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 60px;
+      background: linear-gradient(90deg, #58a6ff, #ea4aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* About */
+    .about p {
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Achievements / Badges */
+    .badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .badge-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .badge-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2);
+    }
+    .badge-card i {
+      font-size: 4rem;
+      background: linear-gradient(135deg, #58a6ff, #c41fce);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .badge-card h3 {
+      font-size: 1.8rem;
+      margin: 15px 0;
+    }
+    .badge-card .rank {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .skill {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 50px 0;
+      background: #010409;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="hero">
+        <h1>Alex Cipher</h1>
+        <p>Ethical Hacker • Penetration Tester • Bug Bounty Hunter</p>
+        <div class="socials">
+          <a href="https://tryhackme.com/p/yourusername" target="_blank" title="TryHackMe"><i class="fab fa-hack-the-box"></i></a>
+          <a href="https://app.hackthebox.com/profile/yourid" target="_blank" title="HackTheBox"><i class="fas fa-cube"></i></a>
+          <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="mailto:you@example.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>
+        Passionate ethical hacker with a strong focus on web application security, network penetration testing, 
+        and red team operations. Top-ranked on TryHackMe and HackTheBox. Always hunting for the next 0-day 
+        and contributing to the security community.
+      </p>
+    </section>
+
+    <section>
+      <h2>Platform Rankings & Achievements</h2>
+      <div class="badges">
+        <div class="badge-card">
+          <i class="fas fa-trophy"></i>
+          <h3>TryHackMe</h3>
+          <div class="rank">Top 1%</div>
+          <p>Rank #87 Global • 1,200+ Rooms Completed</p>
+          <a href="https://tryhackme.com/p/yourusername" target="_blank" style="color:#58a6ff; margin-top:10px; display:inline-block;">
+            View Badge → 
+          </a>
+        </div>
+
+        <div class="badge-card">
+          <i class="fas fa-cube"></i>
+          <h3>HackTheBox</h3>
+          <div class="rank">Pro Hacker</div>
+          <p>128 Boxes Owned • 42 Endgames</p>
+          <a href="https://app.hackthebox.com/profile/yourid" target="_blank" style="color:#58a6ff; margin-top:10px; display:inline-block;">
+            View Profile →
+          </a>
+        </div>
+
+        <div class="badge-card">
+          <i class="fas fa-bug"></i>
+          <h3>Bug Bounty</h3>
+          <div class="rank">$25,000+ Earned</div>
+          <p>Hall of Fame: Google, Microsoft, Tesla, Shopify</p>
+        </div>
+
+        <div class="badge-card">
+          <i class="fas fa-certificate"></i>
+          <h3>Certifications</h3>
+          <p>OSCP • eJPT • CEH • PNPT • Burp Suite Certified</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills & Tools</h2>
+      <div class="skills-grid">
+        <div class="skill">Web App Pentesting</div>
+        <div class="skill">Network Security</div>
+        <div class="skill">Burp Suite / ZAP</div>
+        <div class="skill">Nmap / Metasploit</div>
+        <div class="skill">Reverse Engineering</div>
+        <div class="skill">Bash / Python Scripting</div>
+        <div class="skill">Active Directory Attacks</div>
+        <div class="skill">Cloud Security (AWS/Azure)</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Alex Cipher. Built with 🔥 and zero vulnerabilities.</p>
+  </footer>
+
+</body>
+</html>
