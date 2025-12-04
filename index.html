@@ -2,224 +2,897 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alex Cipher | Ethical Hacker & Security Researcher</title>
-  <meta name="description" content="Ethical Hacker | Bug Bounty | Penetration Tester | CTF Player">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Vasanthabalan A | Cybersecurity Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #0d1117;
-      --text: #c9d1d9;
-      --primary: #58a6ff;
-      --card: #161b22;
-      --border: #30363d;
+      --bg: #050816;
+      --bg-card: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.4);
+      --radius-xl: 1.25rem;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.7);
+      --transition-fast: 0.2s ease;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #1d283a 0, #020617 50%, #020617 100%);
+      color: var(--text-main);
       line-height: 1.6;
-    }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-    /* Header & Hero */
-    header {
-      background: linear-gradient(135deg, #1f6feb 0%, #c41fce 100%);
-      color: white;
-      padding: 100px 0;
-      text-align: center;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    }
-    .hero h1 {
-      font-size: 4rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.5rem;
-      opacity: 0.9;
-    }
-    .socials {
-      margin-top: 30px;
-    }
-    .socials a {
-      color: white;
-      font-size: 2rem;
-      margin: 0 15px;
-      transition: 0.3s;
-    }
-    .socials a:hover { transform: translateY(-5px); }
-
-    /* Main Content */
-    main { padding: 80px 0; }
-    section { margin-bottom: 100px; }
-    h2 {
-      font-size: 2.8rem;
-      text-align: center;
-      margin-bottom: 60px;
-      background: linear-gradient(90deg, #58a6ff, #ea4aaa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      min-height: 100vh;
     }
 
-    /* About */
-    .about p {
-      font-size: 1.2rem;
-      text-align: center;
-      max-width: 800px;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
     }
 
-    /* Achievements / Badges */
-    .badges {
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 1rem;
+      z-index: 20;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    nav a {
+      margin-left: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #22c55e, #38bdf8);
+      transition: width var(--transition-fast);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero section */
+    .hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
     }
-    .badge-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      transition: 0.3s;
+
+    .hero-text h1 {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
     }
-    .badge-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
-      box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2);
-    }
-    .badge-card i {
-      font-size: 4rem;
-      background: linear-gradient(135deg, #58a6ff, #c41fce);
+
+    .hero-text h1 span {
+      background: linear-gradient(to right, #22c55e, #38bdf8);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
+      color: transparent;
     }
-    .badge-card h3 {
-      font-size: 1.8rem;
-      margin: 15px 0;
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
     }
-    .badge-card .rank {
-      font-size: 2.2rem;
-      font-weight: bold;
-      color: var(--primary);
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #38bdf8);
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 45px rgba(56, 189, 248, 0.55);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .glass-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, #1d283a 0, #020617 80%);
+      border: 1px solid var(--border-subtle);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.15), transparent 60%),
+                  radial-gradient(circle at 90% 100%, rgba(34, 197, 94, 0.12), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .glass-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .status-pill {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.7);
+    }
+
+    .glass-main-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-card {
+      border-radius: 0.9rem;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.88);
+      font-size: 0.8rem;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .stat-pill {
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.12);
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      display: inline-block;
+      margin-top: 0.35rem;
+    }
+
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 0.25rem;
+    }
+
+    .mini-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22c55e, #38bdf8);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin-bottom: 1.2rem;
     }
 
     /* Skills */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .skill {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 4px solid var(--primary);
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
     }
 
-    /* Footer */
+    .skill-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .skill-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .skill-list li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    /* Achievements / projects */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .achievement-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achievement-tag {
+      font-size: 0.7rem;
+      color: var(--accent);
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .achievement-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .achievement-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .achievement-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Security profiles */
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .profile-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .profile-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .profile-link {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .profile-link:hover {
+      text-decoration: underline;
+    }
+
+    .profile-stat {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .profile-badge {
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(56, 189, 248, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--accent);
+    }
+
+    /* Contact */
+    .contact-card {
+      border-radius: var(--radius-xl);
+      padding: 1.25rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.95);
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 2fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-main {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .contact-main strong {
+      color: var(--text-main);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      transition: border-color var(--transition-fast),
+        background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .contact-links a:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateY(-1px);
+    }
+
+    .bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
     footer {
       text-align: center;
-      padding: 50px 0;
-      background: #010409;
-      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.8rem; }
-      .hero p { font-size: 1.2rem; }
+    /* Responsive */
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      header {
+        border-radius: 1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 1rem 1rem 2.5rem;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      nav a {
+        margin-left: 0.6rem;
+      }
+
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
 <body>
+  <div class="page">
+    <!-- Top Nav -->
+    <header>
+      <div class="logo">VASANTHABALAN A</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Projects & Certs</a>
+        <a href="#security">THM & HTB</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <header>
-    <div class="container">
-      <div class="hero">
-        <h1>Alex Cipher</h1>
-        <p>Ethical Hacker • Penetration Tester • Bug Bounty Hunter</p>
-        <div class="socials">
-          <a href="https://tryhackme.com/p/yourusername" target="_blank" title="TryHackMe"><i class="fab fa-hack-the-box"></i></a>
-          <a href="https://app.hackthebox.com/profile/yourid" target="_blank" title="HackTheBox"><i class="fas fa-cube"></i></a>
-          <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="mailto:you@example.com"><i class="fas fa-envelope"></i></a>
+    <!-- Hero -->
+    <main class="hero">
+      <section class="hero-text">
+        <h1>Hi, I'm <span>Vasanthabalan A</span></h1>
+        <p class="hero-subtitle">
+          Aspiring <strong>Cybersecurity Professional</strong> with a focus on both
+          <strong>defensive and offensive security</strong>. Passionate about identifying
+          vulnerabilities, strengthening system security, and continuously learning modern tools
+          and techniques.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">eJPT Certified</span>
+          <span class="tag">Network Security</span>
+          <span class="tag">SOC / Blue Team</span>
+          <span class="tag">Python & Bash</span>
         </div>
-      </div>
-    </div>
-  </header>
 
-  <main class="container">
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Contact Me</a>
+          <a href="#achievements" class="btn-ghost">View Projects & Certs</a>
+        </div>
+      </section>
 
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        Passionate ethical hacker with a strong focus on web application security, network penetration testing, 
-        and red team operations. Top-ranked on TryHackMe and HackTheBox. Always hunting for the next 0-day 
-        and contributing to the security community.
+      <!-- Right glass card -->
+      <aside class="hero-right">
+        <div class="glass-card">
+          <div class="glow"></div>
+          <div class="glass-header">
+            <div>
+              <div class="glass-main-title">Security Lab Snapshot</div>
+              <span class="mini-label"><span class="badge-dot"></span>Active Learner</span>
+            </div>
+            <span class="status-pill">Open to Opportunities</span>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">TryHackMe</div>
+              <div class="stat-value">110+ Rooms</div>
+              <span class="stat-pill">Top 3% Global Ranking</span>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">HackTheBox</div>
+              <div class="stat-value">20+ Modules</div>
+              <span class="stat-pill">Modules & Machines</span>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Certifications</div>
+              <div class="badges-row">
+                <span>eJPT</span>
+                <span>PT1 (TryHackMe)</span>
+                <span>CNSP</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Core Tools</div>
+              <div class="badges-row">
+                <span>Metasploit</span>
+                <span>Burp Suite</span>
+                <span>Wireshark</span>
+                <span>Wazuh</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-label">
+            <span class="badge-dot"></span>
+            Constantly improving through hands-on labs and projects.
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">
+        <span></span> About Me
+      </h2>
+      <p class="section-subtitle">
+        I am a B.E Computer Science (Cyber Security) student at Sri Shakthi Institute of Engineering
+        and Technology, building a strong foundation in both theory and hands-on practice.
+      </p>
+      <p class="section-subtitle">
+        My interests include penetration testing, security monitoring, incident detection, and
+        network defense. I actively work on labs, projects, and certifications to become job-ready
+        for roles like <strong>Security Analyst, SOC Analyst, or Network Security Engineer</strong>.
       </p>
     </section>
 
-    <section>
-      <h2>Platform Rankings & Achievements</h2>
-      <div class="badges">
-        <div class="badge-card">
-          <i class="fas fa-trophy"></i>
-          <h3>TryHackMe</h3>
-          <div class="rank">Top 1%</div>
-          <p>Rank #87 Global • 1,200+ Rooms Completed</p>
-          <a href="https://tryhackme.com/p/yourusername" target="_blank" style="color:#58a6ff; margin-top:10px; display:inline-block;">
-            View Badge → 
-          </a>
-        </div>
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">
+        <span></span> Technical Skills
+      </h2>
+      <p class="section-subtitle">
+        A quick overview of the tools, technologies, and platforms I work with.
+      </p>
 
-        <div class="badge-card">
-          <i class="fas fa-cube"></i>
-          <h3>HackTheBox</h3>
-          <div class="rank">Pro Hacker</div>
-          <p>128 Boxes Owned • 42 Endgames</p>
-          <a href="https://app.hackthebox.com/profile/yourid" target="_blank" style="color:#58a6ff; margin-top:10px; display:inline-block;">
-            View Profile →
-          </a>
-        </div>
-
-        <div class="badge-card">
-          <i class="fas fa-bug"></i>
-          <h3>Bug Bounty</h3>
-          <div class="rank">$25,000+ Earned</div>
-          <p>Hall of Fame: Google, Microsoft, Tesla, Shopify</p>
-        </div>
-
-        <div class="badge-card">
-          <i class="fas fa-certificate"></i>
-          <h3>Certifications</h3>
-          <p>OSCP • eJPT • CEH • PNPT • Burp Suite Certified</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Skills & Tools</h2>
       <div class="skills-grid">
-        <div class="skill">Web App Pentesting</div>
-        <div class="skill">Network Security</div>
-        <div class="skill">Burp Suite / ZAP</div>
-        <div class="skill">Nmap / Metasploit</div>
-        <div class="skill">Reverse Engineering</div>
-        <div class="skill">Bash / Python Scripting</div>
-        <div class="skill">Active Directory Attacks</div>
-        <div class="skill">Cloud Security (AWS/Azure)</div>
+        <div class="skill-card">
+          <h3>Security Tools</h3>
+          <ul class="skill-list">
+            <li>Metasploit</li>
+            <li>Burp Suite</li>
+            <li>Nmap</li>
+            <li>SQLMap</li>
+            <li>Wireshark</li>
+            <li>DirBuster</li>
+            <li>Wazuh</li>
+            <li>OWASP ZAP</li>
+            <li>Nikto</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Programming & Scripting</h3>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>Bash</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>OS & Cloud</h3>
+          <ul class="skill-list">
+            <li>Linux</li>
+            <li>Windows</li>
+            <li>AWS</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-  </main>
+    <!-- Projects & Certifications -->
+    <section id="achievements">
+      <h2 class="section-title">
+        <span></span> Projects & Certifications
+      </h2>
+      <p class="section-subtitle">
+        A mix of academic, lab and self-initiated work that helped me understand real-world
+        security challenges.
+      </p>
 
-  <footer>
-    <p>© 2025 Alex Cipher. Built with 🔥 and zero vulnerabilities.</p>
-  </footer>
+      <div class="achievements-grid">
+        <!-- Certifications -->
+        <article class="achievement-card">
+          <span class="achievement-tag">Certification</span>
+          <h3 class="achievement-title">eLearnSecurity Junior Penetration Tester (eJPT)</h3>
+          <p class="achievement-meta">INE</p>
+          <p class="achievement-desc">
+            Validated skills in information gathering, vulnerability assessment, exploitation and
+            basic post-exploitation in realistic network environments.
+          </p>
+        </article>
 
+        <article class="achievement-card">
+          <span class="achievement-tag">Certification</span>
+          <h3 class="achievement-title">Penetration Testing (PT1) – TryHackMe</h3>
+          <p class="achievement-meta">TryHackMe</p>
+          <p class="achievement-desc">
+            Demonstrated understanding of core penetration testing methodology, from reconnaissance
+            to exploitation, using hands-on labs and guided paths.
+          </p>
+        </article>
+
+        <article class="achievement-card">
+          <span class="achievement-tag">Certification</span>
+          <h3 class="achievement-title">Certified Network Security Practitioner (CNSP)</h3>
+          <p class="achievement-meta">SecOps</p>
+          <p class="achievement-desc">
+            Covered key concepts in network security, including secure configurations, monitoring
+            and defensive strategies for modern network infrastructures.
+          </p>
+        </article>
+
+        <!-- Projects -->
+        <article class="achievement-card">
+          <span class="achievement-tag">Project</span>
+          <h3 class="achievement-title">SQL and XSS Attack Detection Tool</h3>
+          <p class="achievement-meta">Security Project</p>
+          <p class="achievement-desc">
+            Developed a real-time detection tool that analyzes user inputs and URLs to identify
+            malicious SQL Injection and XSS patterns, providing instant alerts on detected attacks.
+          </p>
+        </article>
+
+        <article class="achievement-card">
+          <span class="achievement-tag">Project</span>
+          <h3 class="achievement-title">Linux Security Auditing System</h3>
+          <p class="achievement-meta">Security Project</p>
+          <p class="achievement-desc">
+            Built modules for file system analysis, user account management, process monitoring and
+            service auditing to automate Linux security checks and identify suspicious activity.
+          </p>
+        </article>
+
+        <article class="achievement-card">
+          <span class="achievement-tag">Lab Project</span>
+          <h3 class="achievement-title">pfSense Firewall Deployment with Wazuh</h3>
+          <p class="achievement-meta">Network Security Lab</p>
+          <p class="achievement-desc">
+            Designed and deployed a layered security lab using pfSense as a perimeter firewall and
+            Wazuh for log analysis and alerting on Windows hosts, simulating attacks to validate
+            detection and forensic capabilities.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Security Profiles: TryHackMe / HackTheBox / LinkedIn -->
+    <section id="security">
+      <h2 class="section-title">
+        <span></span> TryHackMe, HackTheBox & Profiles
+      </h2>
+      <p class="section-subtitle">
+        These platforms show my continuous effort in building hands-on cybersecurity skills.
+      </p>
+
+      <div class="profiles-grid">
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-name">TryHackMe</div>
+            <!-- TODO: Replace # with your TryHackMe profile URL -->
+            <a class="profile-link" href="#" target="_blank" rel="noopener">
+              View Profile →
+            </a>
+          </div>
+          <p class="profile-stat">
+            Completed <strong>110+ rooms and challenges</strong>, achieving a
+            <strong>Top 3% global ranking</strong>.
+          </p>
+          <div class="profile-badge">
+            <span class="bullet"></span>
+            Focused on web security, networking, SOC, and Linux labs.
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-name">HackTheBox</div>
+            <!-- TODO: Replace # with your HackTheBox profile URL -->
+            <a class="profile-link" href="#" target="_blank" rel="noopener">
+              View Profile →
+            </a>
+          </div>
+          <p class="profile-stat">
+            Completed <strong>20+ modules and machines</strong>, practicing enumeration, exploitation
+            and privilege escalation.
+          </p>
+          <div class="profile-badge">
+            <span class="bullet"></span>
+            Using HTB to sharpen offensive skills and attacker mindset.
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-name">LinkedIn</div>
+            <a class="profile-link"
+               href="https://linkedin.com/in/vasanthabalan-a-898019277"
+               target="_blank" rel="noopener">
+              Open LinkedIn →
+            </a>
+          </div>
+          <p class="profile-stat">
+            My latest updates on education, certifications, skills and career goals.
+          </p>
+          <div class="profile-badge">
+            <span class="bullet"></span>
+            Let’s connect and discuss security opportunities.
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-name">GitHub</div>
+            <!-- Optional: Replace # with your GitHub profile URL -->
+            <a class="profile-link" href="#" target="_blank" rel="noopener">
+              Visit GitHub →
+            </a>
+          </div>
+          <p class="profile-stat">
+            Ideal place to showcase scripts, notes, tools or security-related experiments.
+          </p>
+          <div class="profile-badge">
+            <span class="bullet"></span>
+            Planning to publish security scripts and lab documentation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">
+        <span></span> Contact
+      </h2>
+
+      <div class="contact-card">
+        <div class="contact-main">
+          <p>
+            <strong>Looking for roles:</strong> SOC Analyst / Security Analyst / Network Security /
+            Cybersecurity Intern (Fresher).
+          </p>
+          <p style="margin-top: 0.6rem;">
+            I’m interested in environments where I can contribute to real security operations, learn
+            from experienced professionals, and continue growing my skills through hands-on work.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:vasanthabalanak@gmail.com">
+            <span class="bullet"></span>
+            vasanthabalanak@gmail.com
+          </a>
+          <a href="tel:+917904297679">
+            <span class="bullet"></span>
+            +91 79042 97679
+          </a>
+          <a href="https://linkedin.com/in/vasanthabalan-a-898019277"
+             target="_blank" rel="noopener">
+            <span class="bullet"></span>
+            LinkedIn Profile
+          </a>
+          <!-- TODO: Replace # with your actual TryHackMe URL -->
+          <a href="#" target="_blank" rel="noopener">
+            <span class="bullet"></span>
+            TryHackMe Profile
+          </a>
+          <!-- TODO: Replace # with your actual HackTheBox URL -->
+          <a href="#" target="_blank" rel="noopener">
+            <span class="bullet"></span>
+            HackTheBox Profile
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Vasanthabalan A. Built with passion for cybersecurity.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
